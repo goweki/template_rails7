@@ -9,6 +9,9 @@ gem "rails", "~> 7.0.8", ">= 7.0.8.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# sorbet runtime package: provides syntax for type annotations as well as certain type-friendly data structures.
+gem 'sorbet-runtime'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -54,12 +57,20 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  
+  #used to manage environment variables in development and test environments
   gem 'dotenv-rails'
+  
+  # Tapioca: for generating RBI files, which allow Sorbet to interoperate with gems and metaprogramming.
+  gem 'tapioca', require: false
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Sorbet: the static type checker, which runs as a command line executable
+  gem 'sorbet'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

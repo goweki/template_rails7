@@ -40,14 +40,15 @@ To create the database, run:
 bin/rails db:create
 ```
 
-This will work only if the user defined in the `config/database.yml` file has permissions to create databases. If not manually create the databases for `development`,`test` and `production` envvironments, as defined in `config/database.yml`
+> [!WARNING]  
+> This will work only if the user defined in the `config/database.yml` file has permissions to create databases. If not manually create the databases for `development`,`test` and `production` envvironments, as defined in `config/database.yml`
 
 ### Database Initialization
 
 To run any pending migrations, use:
 
 ```bash
-bin/rails db:create
+bin/rails db:migrate
 ```
 
 You can also seed the database with initial data (if you have a seeds file):

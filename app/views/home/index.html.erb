@@ -5,9 +5,13 @@
     <p class="mt-4 text-lg">Elevate your learning experience with our user-friendly platform.</p>
     
     <% if user_signed_in? %>
-      <%= link_to "Continue as #{current_user.name}", dashboard_path, class: "mt-6 inline-block bg-white text-blue-600 rounded px-4 py-2 font-semibold" %>
+      <%= render_button variant: :default, as: :link, href: dashboard_path do %>
+        Continue as <%= current_user.name.presence || current_user.email %>
+      <% end %>
     <% else %>
-      <%= link_to "Sign In", new_user_session_path, class: "mt-6 inline-block bg-white text-blue-600 rounded px-4 py-2 font-semibold" %>
+      <%= render_button variant: :default, as: :link, href: '/users/sign_in' do %>
+        Sign In
+    <% end %>
     <% end %>
   </div>
 </section>

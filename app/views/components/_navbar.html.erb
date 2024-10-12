@@ -1,0 +1,19 @@
+<nav class="flex flex-row justify-between p-2">
+    <%= link_to "MyApp", root_path, class: "navbar-brand" %>
+
+    <div id="navigationLinks">
+      <ul class="ml-auto flex flex-row">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Contact", root_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+
+    <%= render 'components/user_dropdown' %> 
+</nav>

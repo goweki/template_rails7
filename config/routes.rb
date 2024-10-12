@@ -6,8 +6,10 @@ Rails.application.routes.draw do
 
   # root route
   root to: 'home#index'
-
-  # resourceful routing for 'home' actions
+  # public routes
   get '/contacts', to: 'home#contacts'
   get '/blog', to: 'home#blog'
+
+  # protected routes
+  get 'dashboard', to: 'dashboard#index', as: 'dashboard'
 end

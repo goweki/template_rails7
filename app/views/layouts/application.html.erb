@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html class="min-h-screen">
   <head>
-    <title>Rails7Template</title>
+    <title><%= yield(:title) || "Rails-7 Template" %></title>
+    <link rel="icon" type="image/png" href="<%= asset_path('favicon.ico') %>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,11 +10,35 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= yield :head %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="bg-background container">
+    <%# header %>
+    <% if user_signed_in? %>
+      <header>
+        <nav class="navbar bg-gray-800 text-white p-4">
+          <div class="container mx-auto">
+            <%= link_to "Home", root_path, class: "navbar-brand text-lg font-bold" %>
+
+            <div class="nav-links">
+              <%= link_to "Dashboard", dashboard_path, class: "text-white mx-2" %>
+              <%= link_to "Profile", edit_user_registration_path, class: "text-white mx-2" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white mx-2" %>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <% end %>
+    <%# main content %>
+    <main class="flex flex-1 flex-col">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
+    <%# footer %>
+    <footer class="mt-10 p-4 bg-gray-800 text-white text-center">
+      <p>&copy; <%= Date.today.year %> Your Company. All rights reserved.</p>
+    </footer>
   </body>
 </html>

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  get 'home/index'
-  get 'home/contacts'
-  get 'home/blog'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # devise auth route segment
+  devise_for :users
 
-  root 'home#index' # route ("/")
+  # root route
+  root to: 'home#index'
 
+  # resourceful routing for 'home' actions
   get '/contacts', to: 'home#contacts'
   get '/blog', to: 'home#blog'
 end

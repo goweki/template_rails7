@@ -1,4 +1,58 @@
-<div>
-  <h1 class="font-bold text-4xl">Home#index</h1>
-  <p>Find me in app/views/home/index.html.erb</p>
-</div>
+<%# Hero Section %>
+<section class="bg-blue-600 text-white py-20">
+  <div class="container mx-auto text-center">
+    <h1 class="text-5xl font-bold">Welcome to Our Learning Management System</h1>
+    <p class="mt-4 text-lg">Elevate your learning experience with our user-friendly platform.</p>
+    
+    <% if user_signed_in? %>
+      <%= link_to "Continue as #{current_user.name}", dashboard_path, class: "mt-6 inline-block bg-white text-blue-600 rounded px-4 py-2 font-semibold" %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path, class: "mt-6 inline-block bg-white text-blue-600 rounded px-4 py-2 font-semibold" %>
+    <% end %>
+  </div>
+</section>
+
+<%# Features Section %>
+<section class="py-20 bg-gray-100">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold">Features</h2>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Interactive Courses</h3>
+        <p class="mt-2">Engaging courses designed to keep learners interested and motivated.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Progress Tracking</h3>
+        <p class="mt-2">Easily monitor your progress and stay on top of your learning goals.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Community Support</h3>
+        <p class="mt-2">Join a vibrant community for discussions, support, and knowledge sharing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# Pricing Section %>
+<section class="py-20">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold">Pricing</h2>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Free Plan</h3>
+        <p class="mt-2">Access to basic courses and community forums.</p>
+        <p class="mt-4 text-lg font-bold">$0/month</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Pro Plan</h3>
+        <p class="mt-2">Unlock premium courses and features for advanced learning.</p>
+        <p class="mt-4 text-lg font-bold">$29/month</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Business Plan</h3>
+        <p class="mt-2">Custom solutions for organizations and teams.</p>
+        <p class="mt-4 text-lg font-bold">Contact us</p>
+      </div>
+    </div>
+  </div>
+</section>

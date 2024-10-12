@@ -36,6 +36,9 @@ gem 'tailwindcss-rails', '~> 2.7'
 # devise for authentication
 gem 'devise', '~> 4.9', '>= 4.9.3'
 
+# icons
+gem 'font-awesome-sass'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
